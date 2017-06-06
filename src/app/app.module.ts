@@ -17,6 +17,17 @@ import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 
+export interface AppConfig {
+  BASE_URL:string,
+  APP_ID:string,
+  APP_SECRET:string
+}
+
+export const APPCONFIG:AppConfig = {
+    BASE_URL: 'your app subdomain',
+    APP_ID: 'your app id',
+    APP_SECRET: 'your app secret',
+};
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -59,3 +70,11 @@ export class AppModule {
   constructor(public appState: AppState) {
   }
 }
+
+// backup providers
+/*
+  providers: [ // expose our Services and Providers into Angular's dependency injection
+    APP_PROVIDERS
+  ]
+})
+*/

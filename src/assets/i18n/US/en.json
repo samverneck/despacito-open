@@ -1,12 +1,12 @@
 {
   "login": {
-    "title": "Sign in to ng2-admin",
-    "signup_link": "New to ng2-admin? Sign up!",
+    "title": "Entre no Despacito Admin",
+    "signup_link": "É novo no Despacito Admin? Cadastra-se já!",
     "email": "Email",
-    "password": "Password",
-    "sign_in": "Sign in",
-    "forgot_password": "Forgot password?",
-    "sign_from_app_text": "or Sign in with one click",
+    "password": "Senha",
+    "sign_in": "Entrar",
+    "forgot_password": "Esqueceu sua senha?",
+    "sign_from_app_text": "ou entre com um clique",
     "share_on_facebook": "Share on Facebook",
     "share_on_twitter": "Share on Twitter",
     "share_on_google_plus": "Share on Google Plus"
