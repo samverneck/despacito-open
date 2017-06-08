@@ -21,6 +21,8 @@ import { PagesModule } from './pages/pages.module';
 import { AuthService } from './providers/auth.service';
 import { AuthGuard } from './providers/auth.guard';
 
+import { PageNotFoundComponent }   from './shared/not-found.component';
+
 export interface AppConfig {
   BASE_URL: string;
   APP_ID: string;
@@ -52,6 +54,7 @@ export type StoreType = {
   bootstrap: [App],
   declarations: [
     App,
+    PageNotFoundComponent,
   ],
   imports: [ // import Angular's modules
     BrowserModule,
