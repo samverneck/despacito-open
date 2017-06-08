@@ -4,14 +4,14 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
 @Component({
   selector: 'login',
   templateUrl: './login.html',
-  styleUrls: ['./login.scss']
+  styleUrls: ['./login.scss'],
 })
 export class Login {
 
-  public form:FormGroup;
-  public email:AbstractControl;
-  public password:AbstractControl;
-  public submitted:boolean = false;
+  public form: FormGroup;
+  public email: AbstractControl;
+  public password: AbstractControl;
+  public submitted: boolean = false;
 
   constructor(fb:FormBuilder) {
     this.form = fb.group({
@@ -23,7 +23,7 @@ export class Login {
     this.password = this.form.controls['password'];
   }
 
-  public onSubmit(values:Object):void {
+  public onSubmit(values:Object): void {
     this.submitted = true;
     if (this.form.valid) {
       // your code goes here

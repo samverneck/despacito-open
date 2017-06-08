@@ -1,3 +1,4 @@
+import { Login } from './pages/login/login.component';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,14 +17,17 @@ import { AppState, InternalStateType } from './app.service';
 import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
+// Auth [Guard]
+import { AuthService } from './providers/auth.service';
+import { AuthGuard } from './providers/auth.guard';
 
 export interface AppConfig {
-  BASE_URL:string,
-  APP_ID:string,
-  APP_SECRET:string
+  BASE_URL: string;
+  APP_ID: string;
+  APP_SECRET: string;
 }
 
-export const APPCONFIG:AppConfig = {
+export const APPCONFIG: AppConfig = {
     BASE_URL: 'your app subdomain',
     APP_ID: 'your app id',
     APP_SECRET: 'your app secret',
@@ -32,13 +36,13 @@ export const APPCONFIG:AppConfig = {
 // Application wide providers
 const APP_PROVIDERS = [
   AppState,
-  GlobalState
+  GlobalState,
 ];
 
 export type StoreType = {
   state: InternalStateType,
   restoreInputValues: () => void,
-  disposeOldHosts: () => void
+  disposeOldHosts: () => void,
 };
 
 /**
@@ -47,7 +51,7 @@ export type StoreType = {
 @NgModule({
   bootstrap: [App],
   declarations: [
-    App
+    App,
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -58,11 +62,13 @@ export type StoreType = {
     NgaModule.forRoot(),
     NgbModule.forRoot(),
     PagesModule,
-    routing
+    routing,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS
-  ]
+    APP_PROVIDERS,
+    AuthService,
+    AuthGuard,
+  ],
 })
 
 export class AppModule {
@@ -70,11 +76,3 @@ export class AppModule {
   constructor(public appState: AppState) {
   }
 }
-
-// backup providers
-/*
-  providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS
-  ]
-})
-*/
